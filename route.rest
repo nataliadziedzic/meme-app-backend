@@ -1,25 +1,25 @@
-GET http://localhost:3000/memes
+GET http://localhost:5000/memes
 
 ###
-GET http://localhost:3000/memes/60a295369410a34b48860f69
+GET http://localhost:5000/memes/60a295369410a34b48860f69
 
 ###
-POST http://localhost:3000/memes
+POST http://localhost:5000/memes
 Content-Type: application/json
 
 {
-    "title": "My second meme",
-    "img": "someNewImage.jpg"
+    "author": "I'm an author",
+    "title": "My 1 meme",
+    "image": "someNewImageHere.jpg"
 }
 
 ###
-DELETE http://localhost:3000/memes/60a1f2d98e86de098442320d
+DELETE http://localhost:5000/memes/60a7a77df3c76c0dec0341fa
 
 ###
-PATCH  http://localhost:3000/memes/60a295369410a34b48860f69
+PATCH  http://localhost:5000/memes/60a3536efe4b770fa03d8642
 Content-Type: application/json
 
 {
-    "title": "My third meme - update",
-    "img": "someNewImage.jpg"
+    "title": "My first meme - update",
 }

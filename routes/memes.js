@@ -16,8 +16,9 @@ router.get('/:id', getMeme, (req, res) => {
 })
 router.post('/', async (req, res) => {
   const meme = new Meme({
+    author: req.body.author,
     title: req.body.title,
-    img: req.body.img
+    image: req.body.image
   })
   try {
     const newMeme = await meme.save()
@@ -28,11 +29,11 @@ router.post('/', async (req, res) => {
   }
 })
 router.patch('/:id', getMeme, async (req, res) => {
+  if(req.body.author !== null) {
+    res.meme.author = req.body.author
+  }
   if(req.body.title !== null) {
     res.meme.title = req.body.title
-  }
-  if(req.body.img !== null) {
-    res.meme.img = req.body.img
   }
   try {
     const updatedMeme = await res.meme.save()

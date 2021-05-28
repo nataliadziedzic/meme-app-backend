@@ -1,11 +1,15 @@
 const mongoose = require('mongoose')
 
 const memeSchema = new mongoose.Schema({
+    author: {
+        type: String,
+        required: true
+    },
     title: {
         type: String,
         required: true
     },
-    img: {
+    image: {
         type: String,
         required: true
     },
