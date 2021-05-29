@@ -5,7 +5,7 @@ const Meme = require('../models/meme')
 router.get('/', async (req, res) => {
   try {
     const memes = await Meme.find()
-    res.json(memes)
+    res.json(memes.data)
   } catch (error) {
     res.status(500).json({ message: error.message })
     process.exit(1);

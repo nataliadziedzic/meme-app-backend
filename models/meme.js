@@ -13,6 +13,16 @@ const memeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    upvotes: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    downvotes: {
+        type: Number,
+        required: true,
+        default: 0
+    },
     publicationDate: {
         type: Date,
         required: true,
