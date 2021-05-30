@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
     process.exit(1);
   }
 })
+
 router.get('/:id', getMeme, (req, res) => {
   res.json(res.meme)
 })
@@ -28,10 +29,8 @@ router.post('/', async (req, res) => {
     process.exit(1);
   }
 })
+
 router.patch('/:id', getMeme, async (req, res) => {
-  if(req.body.author !== null) {
-    res.meme.author = req.body.author
-  }
   if(req.body.title !== null) {
     res.meme.title = req.body.title
   }
@@ -42,6 +41,7 @@ router.patch('/:id', getMeme, async (req, res) => {
     res.status(400).json({ message: error.message })
   }
 })
+
 router.delete('/:id', getMeme, async (req, res) => {
   try {
     await res.meme.remove()
@@ -59,7 +59,7 @@ async function getMeme(req, res, next) {
       return res.status(404).json({ message: 'Cannot find meme' })
     }
   } catch (error) {
-    return res.status(500).json({ message: error.message + 'FROM MIDDLEWARE' })
+    return res.status(500).json({ message: error.message })
   }
   res.meme = meme
   next()
