@@ -31,8 +31,14 @@ router.post('/', async (req, res) => {
 })
 
 router.patch('/:id', getMeme, async (req, res) => {
-  if(req.body.title !== null) {
+  if (req.body.title !== undefined) {
     res.meme.title = req.body.title
+  }
+  if (req.body.upvotes !== undefined) {
+    res.meme.upvotes = req.body.upvotes
+  }
+  if (req.body.downvotes !== undefined) {
+    res.meme.downvotes = req.body.downvotes
   }
   try {
     const updatedMeme = await res.meme.save()
