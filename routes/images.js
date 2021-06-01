@@ -21,14 +21,14 @@ router.get('/:key', async (req, res) => {
 
 router.post('/', upload.single('image'), async (req, res) => {
   const file = req.file
-    try {
-      const uploadedImage = await uploadFile(file)
-      unlinkFile(file.path)
-      res.status(200).send({url: `/images/${uploadedImage.Key}`})
-    } catch (error) {
-      res.status(500).json({ message: error.message })
-      process.exit(1);
-    }
-  })
+  try {
+    const uploadedImage = await uploadFile(file)
+    unlinkFile(file.path)
+    res.status(200).send({ url: `/images/${uploadedImage.Key}` })
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+    process.exit(1)
+  }
+})
 
-  module.exports = router
+module.exports = router

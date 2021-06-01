@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     res.json(memes)
   } catch (error) {
     res.status(500).json({ message: error.message })
-    process.exit(1);
+    process.exit(1)
   }
 })
 
@@ -19,14 +19,14 @@ router.post('/', async (req, res) => {
   const meme = new Meme({
     author: req.body.author,
     title: req.body.title,
-    image: req.body.image
+    image: req.body.image,
   })
   try {
     const newMeme = await meme.save()
     res.status(201).json(newMeme)
   } catch (error) {
     res.status(500).json({ message: error.message })
-    process.exit(1);
+    process.exit(1)
   }
 })
 
@@ -51,7 +51,7 @@ router.patch('/:id', getMeme, async (req, res) => {
 router.delete('/:id', getMeme, async (req, res) => {
   try {
     await res.meme.remove()
-    res.json({ message: "Meme has been succesfully deleted" })
+    res.json({ message: 'Meme has been succesfully deleted' })
   } catch (error) {
     res.status(500).json({ message: err.message })
   }

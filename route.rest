@@ -4,16 +4,6 @@ GET http://localhost:5000/memes
 GET http://localhost:5000/memes/60a95b898153933c6880f8eb
 
 ###
-# POST http://localhost:5000/memes
-# Content-Type: application/json
-
-# {
-#     "author": "An author",
-#     "title": "My 1 meme",
-#     "image": "myImg.jpg"
-# }
-
-###
 DELETE http://localhost:5000/memes/60a9544ae85eb33964b23687
 
 ###
@@ -21,5 +11,5 @@ PATCH  http://localhost:5000/memes/60b39226866e9d0310387ec3
 Content-Type: application/json
 
 {
-    "upvotes": 3,
+    "downvotes": 3,
 }
