@@ -5,9 +5,10 @@ const express = require('express');
 const app = express();
 
 const cors = require('cors');
+const allowedOrigins = ['http://localhost:3000', 'https://bamboozled-memes.herokuapp.com']
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'https://bamboozled-memes.herokuapp.com'],
+    origin: allowedOrigins,
   })
 )
 
